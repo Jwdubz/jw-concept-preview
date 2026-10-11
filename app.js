@@ -97,3 +97,18 @@ const bar=$('#bar'),hero=$('#heroWrap'),end=$('.end');
 function cta(){const vh=innerHeight,h=hero.getBoundingClientRect(),e=end.getBoundingClientRect();bar.classList.toggle('cta',h.bottom<vh*.4&&e.top>vh*.85)}
 addEventListener('scroll',cta,{passive:true});cta();
 })();
+
+/* walkthrough (opt-in, restored) */
+(()=>{const wo=document.getElementById('walkOpen'),dlg=document.getElementById('walkDialog');if(!wo||!dlg)return;
+if(!dlg.showModal){wo.addEventListener('click',()=>{location.href='walk/golden-arrival-approved.mp4'});return}
+const v=document.getElementById('walkVideo'),sc=document.getElementById('walkScrub'),end=document.getElementById('walkEnd'),cl=document.getElementById('walkClose'),rp=document.getElementById('walkReplay');
+const L=()=>window.__lenis||null;
+function start(){end.hidden=true;v.currentTime=0;const p=v.play();if(p&&p.catch)p.catch(()=>{})}
+wo.addEventListener('click',()=>{dlg.showModal();try{L()&&L().stop()}catch(e){}v.preload='auto';start();cl.focus()});
+cl.addEventListener('click',()=>{v.pause();if(dlg.open)dlg.close()});
+dlg.addEventListener('close',()=>{v.pause();try{L()&&L().start()}catch(e){}wo.focus()});
+rp.addEventListener('click',start);
+v.addEventListener('timeupdate',()=>{if(v.duration)sc.value=Math.round(v.currentTime/v.duration*1000)});
+v.addEventListener('ended',()=>{end.hidden=false});
+sc.addEventListener('input',()=>{if(v.duration){v.pause();v.currentTime=sc.value/1000*v.duration;end.hidden=true}});
+sc.addEventListener('change',()=>{if(v.currentTime<v.duration-0.05){const p=v.play();if(p&&p.catch)p.catch(()=>{})}});})();

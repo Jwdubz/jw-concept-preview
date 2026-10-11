@@ -9,7 +9,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=boska@400i,500i&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=42">
+<link rel="stylesheet" href="style.css?v=43">
 <link rel="preload" as="video" href="film/hero.mp4">
 </head>
 <body>
@@ -96,6 +96,30 @@
   </div>
 </section>
 
+<section class="walk" id="walkthrough" data-theme="dark" aria-labelledby="walkTitle">
+  <div class="walk-bg" aria-hidden="true"><video class="walk-v" muted loop playsinline preload="none" poster="walk/corridor.jpg" data-src="walk/corridor-entry-loop.mp4"></video></div>
+  <div class="walk-t">
+    <h2 class="h2 mask" id="walkTitle"><span class="ml"><span>Want The Long</span></span><span class="ml"><span><em>Way In?</em></span></span></h2>
+    <p class="walk-p fade">There’s a 3D walkthrough down the corridor to meet me. It takes about fifteen seconds, and it’s completely optional.</p>
+    <div class="fade"><button class="btn btn-lg" type="button" id="walkOpen" aria-haspopup="dialog">Take The Walkthrough</button></div>
+  </div>
+</section>
+
+<dialog class="film" id="walkDialog" aria-label="The walkthrough">
+  <div class="film-f">
+    <video class="film-v" id="walkVideo" muted playsinline preload="none" poster="walk/corridor.jpg"><source src="walk/golden-arrival-approved.mp4" type="video/mp4"></video>
+    <div class="film-end" id="walkEnd" hidden>
+      <p class="film-endt">That’s Me. Now Let’s Look At Yours.</p>
+      <a class="btn btn-lg" href="https://jarrettwroten.com/book/">Book Your Free Concept Call</a>
+      <button class="film-lnk" type="button" id="walkReplay">Watch Again</button>
+    </div>
+  </div>
+  <div class="film-bar">
+    <label class="film-scrub"><span class="vh">Walkthrough Position</span><input type="range" id="walkScrub" min="0" max="1000" value="0"></label>
+    <button class="btn btn-sm" type="button" id="walkClose">Close</button>
+  </div>
+</dialog>
+
 <section class="end" aria-label="Book">
   <div class="end-v-w"><video class="end-v" muted loop playsinline preload="none" poster="film/w-stirling.jpg" data-src="film/w-stirling.mp4"></video></div>
   <div class="end-t">
@@ -117,6 +141,6 @@
   <p class="fine">Every site shown is a concept I built on spec from the business's own footage. None is shown as a paid client launch.</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="app.js?v=42"></script>
+<script src="app.js?v=43"></script>
 </body>
 </html>
