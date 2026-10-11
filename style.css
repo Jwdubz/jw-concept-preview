@@ -169,3 +169,11 @@ img,video{display:block;max-width:100%}
 .card-t h3{font-size:clamp(44px,4.6vw,84px)}
 .card-f{grid-column:6/13;grid-row:1/3}
 }
+@media (max-width:860px){
+  .card{top:76px!important;min-height:78vh;margin-bottom:36vh;padding:22px}
+  .card:nth-child(2){top:88px!important}.card:nth-child(3){top:100px!important}
+  .card-n{font-size:56px}
+  .card-t h3{font-size:clamp(38px,10vw,52px)}
+  .card-f{min-height:42vh;flex:1}
+  .pc-f{width:80vw}
+}
