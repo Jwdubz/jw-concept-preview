@@ -305,3 +305,23 @@ html.light .bar .mbtn{border-color:var(--ln);color:var(--fg)}
 .film-scrub input{width:100%;accent-color:#eee8dd;height:44px;font-size:16px}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (max-width:760px){.walk{min-height:88svh}.walk .btn{width:100%}.walk-t{width:100%}.walk-t>div{width:100%}}
+
+/* r6 QA fixes */
+.bar.solid{background:var(--bg)}
+.mbtn{display:inline-flex;align-items:center}
+.hero{position:relative}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.28) 30%,rgba(0,0,0,0) 55%)}
+.hero-c{z-index:2}
+.hero-f p{text-shadow:0 1px 2px rgba(0,0,0,.5),0 2px 18px rgba(0,0,0,.55)}
+.say{padding-top:clamp(96px,15vh,180px);padding-bottom:clamp(80px,12vh,150px)}
+.how{padding-top:clamp(96px,14vh,170px);padding-bottom:clamp(40px,6vh,80px)}
+.proof{padding-top:clamp(84px,13vh,160px);padding-bottom:clamp(84px,13vh,160px);margin-top:clamp(40px,6vh,80px)}
+.me{padding-top:clamp(72px,11vh,140px);padding-bottom:clamp(72px,11vh,140px)}
+.end{padding-top:clamp(60px,9vh,110px);padding-bottom:clamp(60px,9vh,110px)}
+.work-name .nm{white-space:nowrap}
+@media (max-width:860px){
+  .pc{align-self:flex-start}
+  .pc-f{width:min(86vw,calc((100svh - 420px) * .8))}
+  .track{align-items:flex-start}
+  .work-name{margin-top:10px}
+}

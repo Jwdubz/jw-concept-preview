@@ -27,7 +27,7 @@ W.forEach((w,i)=>{const a=document.createElement('a');a.className='pc';a.href=`h
 a.innerHTML=`<div class="pc-f"><video muted loop playsinline preload="${i<3?'auto':'none'}" poster="film/w-${w[0]}.jpg" src="film/w-${w[0]}.mp4"></video></div><div class="pc-i"><span class="pc-n">${String(i+1).padStart(2,'0')}</span><span class="pc-h">${w[1]}<span class="pc-c">${w[2]}</span></span><span class="pc-o">Open The Concept</span></div>`;
 track.append(a);cards.push(a)});
 let cur=-1;
-function setCur(i){if(i===cur)return;cur=i;cards.forEach((c,j)=>{c.classList.toggle('on',j===i);const v=c.querySelector('video');if(Math.abs(j-i)<=1){v.preload='auto';if(!paused)v.play().catch(()=>{})}else v.pause()});wCount.textContent=String(i+1).padStart(2,'0');const wn=$('#wName');wn.querySelectorAll('.nm:not(.gone)').forEach(o=>{o.classList.remove('cur');o.classList.add('gone');setTimeout(()=>o.remove(),1000)});const sp=document.createElement('span');sp.className='nm';sp.innerHTML=W[i][1].replace(/(\S+)$/,'<em>$1</em>');wn.append(sp);requestAnimationFrame(()=>requestAnimationFrame(()=>sp.classList.add('cur')))}
+function setCur(i){if(i===cur)return;cur=i;cards.forEach((c,j)=>{c.classList.toggle('on',j===i);const v=c.querySelector('video');if(Math.abs(j-i)<=1){v.preload='auto';if(!paused)v.play().catch(()=>{})}else v.pause()});wCount.textContent=String(i+1).padStart(2,'0');const wn=$('#wName');wn.querySelectorAll('.nm:not(.gone)').forEach(o=>{o.classList.remove('cur');o.classList.add('gone');setTimeout(()=>o.remove(),1000)});const sp=document.createElement('span');sp.className='nm';sp.innerHTML=W[i][1].replace(/(\S+)$/,'<em>$1</em>');wn.append(sp);sp.style.fontSize='';const aw=wn.clientWidth;if(sp.scrollWidth>aw){sp.style.fontSize=(parseFloat(getComputedStyle(sp).fontSize)*aw/sp.scrollWidth*0.98)+'px'}requestAnimationFrame(()=>requestAnimationFrame(()=>sp.classList.add('cur')))}
 // reveals
 const obs=$$('.fade,.mask,.me-p');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});obs.forEach(o=>io.observe(o));
@@ -75,6 +75,7 @@ addEventListener('scroll',()=>{clearTimeout(snapT);if(snapping)return;snapT=setT
 // cursor
 const cur=$('#cur');let mx=-100,my=-100,x=-100,y=-100;
 addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;mx=e.clientX;my=e.clientY;cur.classList.add('on');cur.classList.toggle('big',!!e.target.closest('.pc'));cur.classList.toggle('hide',!e.target.closest('.pc')&&!!e.target.closest('a,button'))});
+{const tk=document.getElementById('track');const off=()=>cur.classList.remove('big');tk.addEventListener('pointerleave',off);document.documentElement.addEventListener('pointerleave',()=>cur.classList.remove('on','big'));addEventListener('scroll',()=>{const r=tk.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight||!(document.elementFromPoint(mx,my)||document.body).closest('.pc'))cur.classList.remove('big')},{passive:true})}
 (function c(){x+=(mx-x)*.18;y+=(my-y)*.18;cur.style.transform=`translate3d(${x}px,${y}px,0)`;requestAnimationFrame(c)})();
 // drag strip
 let dn=false,sx=0,sy=0,moved=0;
