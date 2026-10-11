@@ -3,7 +3,7 @@ const W=[
 ["rainbow","Rainbow Gardens","Wedding Venue"],["stirling","Stirling Club","Wedding And Event Venue"],["rana","Rana Levy","Fine Jewelry And Lapidary"],["generations","Generations Kitchen","Hawaiian Restaurant"],["paina","P\u0101\u2018ina Caf\u00e9","Hawaiian Caf\u00e9"],["prorok","Dylan Prorok","Japanese Tattoo Artist"],["heritage","Heritage Tattoo","Tattoo Studio"],["truheart","Tru Heart Consulting","Outsourced Sales Team"],["purpleflare","Purple Flare Wraps","Wraps And Fleet Graphics"],["starbase","Starbase Wraps","Tesla Wraps And PPF"],["wrapstar","Wrapstar","Wraps, Ceramic Coating And Tint"]];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],root=document.documentElement;
 let paused=false;
-const lenis=new Lenis({lerp:.1,smoothWheel:true});
+const lenis=new Lenis({lerp:.1,smoothWheel:true});window.__lenis=lenis;
 (function raf(t){lenis.raf(t);requestAnimationFrame(raf)})();
 lenis.stop();scrollTo(0,0);
 // intro: counter 0-100, then curtain up
@@ -38,7 +38,7 @@ new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(!paused)hv.p
 // counter
 const num=$('#num');let counted=false;
 function count(){if(counted)return;counted=true;const to=40114.81,s=performance.now(),D=2400;(function f(t){const p=Math.min(1,(t-s)/D),e=1-Math.pow(1-p,4);num.textContent='$'+(to*e).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});if(p<1&&!paused)requestAnimationFrame(f);else num.textContent='$40,114.81'})(s)}
-new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&count()),{threshold:.5}).observe(num);
+
 // stacked cards + end film + header
 const stackCards=$$('.card'),endW=$('.end-v-w'),bar=$('#bar');let last=0;
 function onScroll(){const vh=innerHeight,y=scrollY;
@@ -57,30 +57,29 @@ const pp=$('#pp');pp.onclick=()=>{paused=!paused;pp.setAttribute('aria-pressed',
  const vs=$$('video');if(paused){vs.forEach(v=>v.pause());po.classList.add('on');wds.forEach(w=>w.classList.add('lit'));obs.forEach(o=>o.classList.add('in'));num.textContent='$40,114.81'}else{hv.play().catch(()=>{});const c=cards[cur];c&&c.querySelector('video').play().catch(()=>{});lz.forEach(v=>{if(v.src&&v.getBoundingClientRect().top<innerHeight&&v.getBoundingClientRect().bottom>0)v.play().catch(()=>{})})}};
 $('#top').onclick=()=>lenis.scrollTo(0,{duration:1.8,easing:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2});
 })();
-(()=>{const $=s=>document.querySelector(s);
-// hero frame-down
-const wrap=$('#heroWrap'),hv=$('#heroV'),hc=$('.hero-c');
-// marquee
-const mqs=[...document.querySelectorAll('.mq-t')];const off=mqs.map(()=>0);let lastY=scrollY,vel=0;
-function loop(){const y=scrollY,vh=innerHeight;
+(()=>{const $=s=>document.querySelector(s),root=document.documentElement;
+const wrap=$('#heroWrap'),hv=$('#heroV'),hc=$('.hero-c'),secs=[...document.querySelectorAll('[data-theme]')],cards=[...document.querySelectorAll('.pc')],work=$('.work'),tr=$('#track');
+let snapT=0,snapping=false;
+function loop(){const vh=innerHeight;
  const r=wrap.getBoundingClientRect();const p=Math.min(1,Math.max(0,-r.top/(r.height-vh)));const e=p*p*(3-2*p);
- hv.style.setProperty('--ix',(e*4.2)+'vw');hv.style.setProperty('--iy',(e*5)+'vh');hv.style.setProperty('--ir',(e*26)+'px');
- hc.style.transform=`translate3d(0,${-e*18}vh,0)`;
- vel+=((y-lastY)-vel)*.15;lastY=y;
- mqs.forEach((m,i)=>{const d=+m.parentNode.querySelector('.mq-t').dataset.dir||-1;off[i]+=d*(0.6+Math.min(30,Math.abs(vel))*0.5);const w=m.scrollWidth/3;if(off[i]<-w)off[i]+=w;if(off[i]>0)off[i]-=w;m.style.transform=`translate3d(${off[i]}px,0,0)`});
+ hv.style.setProperty('--ix',(e*4)+'vw');hv.style.setProperty('--iy',(e*5)+'vh');hv.style.setProperty('--ir',(e*22)+'px');hc.style.transform=`translate3d(0,${-e*14}vh,0)`;hc.style.opacity=1-e*.9;
+ let th='dark';for(const s of secs){const b=s.getBoundingClientRect();if(b.top<vh*.5&&b.bottom>vh*.5){th=s.dataset.theme;break}}root.classList.toggle('light',th==='light');
+ const cx=innerWidth/2;cards.forEach(c=>{const b=c.getBoundingClientRect();const d=(b.left+b.width/2-cx)/innerWidth;c.style.setProperty('--px',(-d*60)+'px')});
  requestAnimationFrame(loop)}
 loop();
+// snap the strip to the nearest card when scrolling settles inside it (inertia from Lenis, then snap)
+const L=window.__lenis;
+addEventListener('scroll',()=>{clearTimeout(snapT);if(snapping)return;snapT=setTimeout(()=>{const r=work.getBoundingClientRect(),vh=innerHeight,span=r.height-vh;if(r.top>0||r.bottom<vh)return;const q=-r.top/span,max=tr.scrollWidth-innerWidth;
+ const offs=cards.map(c=>Math.min(1,Math.max(0,(c.offsetLeft+c.offsetWidth/2-innerWidth/2)/max)));let best=offs[0];offs.forEach(o=>{if(Math.abs(o-q)<Math.abs(best-q))best=o});
+ const target=scrollY+(best-q)*span;if(Math.abs(target-scrollY)<4)return;snapping=true;(L?L.scrollTo(target,{duration:.9,easing:t=>1-Math.pow(1-t,4),onComplete:()=>snapping=false}):(scrollTo({top:target,behavior:'smooth'}),setTimeout(()=>snapping=false,900)));setTimeout(()=>snapping=false,1100)},160)},{passive:true});
 // cursor
-const cur=$('#cur');let mx=-100,my=-100,cx=-100,cy=-100;
+const cur=$('#cur');let mx=-100,my=-100,x=-100,y=-100;
 addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;mx=e.clientX;my=e.clientY;cur.classList.add('on');cur.classList.toggle('big',!!e.target.closest('.pc'))});
-(function c(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cur.style.transform=`translate3d(${cx}px,${cy}px,0)`;requestAnimationFrame(c)})();
-// drag the concept track (maps to page scroll)
-const tr=$('#track'),work=$('.work');let dn=false,sx=0,sy=0,moved=0;
+(function c(){x+=(mx-x)*.18;y+=(my-y)*.18;cur.style.transform=`translate3d(${x}px,${y}px,0)`;requestAnimationFrame(c)})();
+// drag strip
+let dn=false,sx=0,sy=0,moved=0;
 tr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dn=true;sx=e.clientX;sy=scrollY;moved=0;tr.classList.add('drag');e.preventDefault()});
 addEventListener('pointermove',e=>{if(!dn)return;const dx=e.clientX-sx;moved=Math.max(moved,Math.abs(dx));const span=work.offsetHeight-innerHeight,max=tr.scrollWidth-innerWidth;scrollTo(0,sy-dx*span/max)});
 addEventListener('pointerup',()=>{dn=false;tr.classList.remove('drag')});
 tr.addEventListener('click',e=>{if(moved>6){e.preventDefault();e.stopPropagation()}},true);
-tr.addEventListener('dragstart',e=>e.preventDefault());
-// phone card reveal
-const io=new IntersectionObserver(es=>es.forEach(x=>x.isIntersecting&&x.target.classList.add('in')),{threshold:.3});document.querySelectorAll('.card').forEach(c=>io.observe(c));
 })();
