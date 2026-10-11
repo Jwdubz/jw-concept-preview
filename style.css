@@ -177,3 +177,4 @@ img,video{display:block;max-width:100%}
   .card-f{min-height:42vh;flex:1}
   .pc-f{width:80vw}
 }
+@media (max-width:860px){.card{position:relative;top:auto!important;margin-bottom:22px;min-height:0}.card-f{min-height:0;aspect-ratio:4/5}}
