@@ -14,7 +14,7 @@ const W=[
 const $=s=>document.querySelector(s), root=document.documentElement;
 let paused=false;
 // smooth scroll (always on)
-const lenis=new Lenis({lerp:.09,wheelMultiplier:1,smoothWheel:true});
+const lenis=new Lenis({lerp:.1,wheelMultiplier:1,smoothWheel:true});
 function raf(t){lenis.raf(t);requestAnimationFrame(raf)}requestAnimationFrame(raf);
 addEventListener('load',()=>root.classList.add('loaded'));setTimeout(()=>root.classList.add('loaded'),1200);
 // hero payoff: last word lands 0.25s after payoff cut (8.75s), then stays
