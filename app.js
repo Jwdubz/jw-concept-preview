@@ -27,7 +27,7 @@ W.forEach((w,i)=>{const a=document.createElement('a');a.className='pc';a.href=`h
 a.innerHTML=`<div class="pc-f"><video muted loop playsinline preload="${i<3?'auto':'none'}" poster="film/w-${w[0]}.jpg" src="film/w-${w[0]}.mp4"></video></div><div class="pc-i"><span class="pc-n">${String(i+1).padStart(2,'0')}</span><span class="pc-h">${w[1]}<span class="pc-c">${w[2]}</span></span><span class="pc-o">Open The Concept</span></div>`;
 track.append(a);cards.push(a)});
 let cur=-1;
-function setCur(i){if(i===cur)return;cur=i;cards.forEach((c,j)=>{c.classList.toggle('on',j===i);const v=c.querySelector('video');if(Math.abs(j-i)<=1){v.preload='auto';if(!paused)v.play().catch(()=>{})}else v.pause()});wCount.textContent=String(i+1).padStart(2,'0');const wn=$('#wName');const old=wn.querySelector('.cur');if(old){old.classList.remove('cur');old.classList.add('gone');setTimeout(()=>old.remove(),1000)}const sp=document.createElement('span');sp.className='nm';sp.innerHTML=W[i][1].replace(/(\S+)$/,'<em>$1</em>');wn.append(sp);requestAnimationFrame(()=>requestAnimationFrame(()=>sp.classList.add('cur')))}
+function setCur(i){if(i===cur)return;cur=i;cards.forEach((c,j)=>{c.classList.toggle('on',j===i);const v=c.querySelector('video');if(Math.abs(j-i)<=1){v.preload='auto';if(!paused)v.play().catch(()=>{})}else v.pause()});wCount.textContent=String(i+1).padStart(2,'0');const wn=$('#wName');wn.querySelectorAll('.nm:not(.gone)').forEach(o=>{o.classList.remove('cur');o.classList.add('gone');setTimeout(()=>o.remove(),1000)});const sp=document.createElement('span');sp.className='nm';sp.innerHTML=W[i][1].replace(/(\S+)$/,'<em>$1</em>');wn.append(sp);requestAnimationFrame(()=>requestAnimationFrame(()=>sp.classList.add('cur')))}
 // reveals
 const obs=$$('.fade,.mask,.me-p');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});obs.forEach(o=>io.observe(o));
@@ -74,7 +74,7 @@ addEventListener('scroll',()=>{clearTimeout(snapT);if(snapping)return;snapT=setT
  const target=scrollY+(best-q)*span;if(Math.abs(target-scrollY)<4)return;snapping=true;(L?L.scrollTo(target,{duration:.9,easing:t=>1-Math.pow(1-t,4),onComplete:()=>snapping=false}):(scrollTo({top:target,behavior:'smooth'}),setTimeout(()=>snapping=false,900)));setTimeout(()=>snapping=false,1100)},160)},{passive:true});
 // cursor
 const cur=$('#cur');let mx=-100,my=-100,x=-100,y=-100;
-addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;mx=e.clientX;my=e.clientY;cur.classList.add('on');cur.classList.toggle('big',!!e.target.closest('.pc'))});
+addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;mx=e.clientX;my=e.clientY;cur.classList.add('on');cur.classList.toggle('big',!!e.target.closest('.pc'));cur.classList.toggle('hide',!e.target.closest('.pc')&&!!e.target.closest('a,button'))});
 (function c(){x+=(mx-x)*.18;y+=(my-y)*.18;cur.style.transform=`translate3d(${x}px,${y}px,0)`;requestAnimationFrame(c)})();
 // drag strip
 let dn=false,sx=0,sy=0,moved=0;
@@ -82,4 +82,18 @@ tr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dn=true;
 addEventListener('pointermove',e=>{if(!dn)return;const dx=e.clientX-sx;moved=Math.max(moved,Math.abs(dx));const span=work.offsetHeight-innerHeight,max=tr.scrollWidth-innerWidth;scrollTo(0,sy-dx*span/max)});
 addEventListener('pointerup',()=>{dn=false;tr.classList.remove('drag')});
 tr.addEventListener('click',e=>{if(moved>6){e.preventDefault();e.stopPropagation()}},true);
+})();
+(()=>{const $=s=>document.querySelector(s);
+const W=[["rainbow","Rainbow Gardens","Wedding Venue"],["stirling","Stirling Club","Event Venue"],["rana","Rana Levy","Fine Jewelry"],["generations","Generations Kitchen","Restaurant"],["paina","P\u0101\u2018ina Caf\u00e9","Caf\u00e9"],["prorok","Dylan Prorok","Tattoo Artist"],["heritage","Heritage Tattoo","Tattoo Studio"],["truheart","Tru Heart Consulting","Sales Team"],["purpleflare","Purple Flare Wraps","Wraps And Fleet"],["starbase","Starbase Wraps","Tesla Wraps"],["wrapstar","Wrapstar","Wraps And Coating"]];
+const ml=$('#menuL');W.forEach((w,i)=>{const li=document.createElement('li');li.className='m-in';li.style.transitionDelay=(0.12+i*0.03)+'s';li.innerHTML=`<a href="https://${w[0]}.jarrettwroten.com/" target="_blank" rel="noopener">${w[1]}<span>${w[2]}</span></a>`;ml.append(li)});
+const menu=$('#menu'),mb=$('#mbtn'),mc=$('#mclose');let last=null;
+function open(){last=document.activeElement;menu.hidden=false;requestAnimationFrame(()=>menu.classList.add('open'));mb.setAttribute('aria-expanded','true');window.__lenis&&window.__lenis.stop();document.documentElement.style.overflow='hidden';setTimeout(()=>mc.focus(),50)}
+function close(){menu.classList.remove('open');mb.setAttribute('aria-expanded','false');window.__lenis&&window.__lenis.start();document.documentElement.style.overflow='';setTimeout(()=>{menu.hidden=true},800);(last||mb).focus()}
+mb.onclick=open;mc.onclick=close;
+addEventListener('keydown',e=>{if(menu.hidden)return;if(e.key==='Escape')close();if(e.key==='Tab'){const f=[...menu.querySelectorAll('a,button')];const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setTimeout(close,100)));
+// header CTA: only between hero and finale (one primary CTA per view)
+const bar=$('#bar'),hero=$('#heroWrap'),end=$('.end');
+function cta(){const vh=innerHeight,h=hero.getBoundingClientRect(),e=end.getBoundingClientRect();bar.classList.toggle('cta',h.bottom<vh*.4&&e.top>vh*.85)}
+addEventListener('scroll',cta,{passive:true});cta();
 })();

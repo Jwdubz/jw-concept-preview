@@ -243,3 +243,40 @@ html.light .btn{background:var(--fg);color:var(--bg)}
 .cursr.on{opacity:1}.cursr.big{width:104px;height:104px;margin:-52px 0 0 -52px}.cursr.big span{opacity:1}
 @media (hover:none){.cursr{display:none}}
 @media (max-width:860px){.big{grid-column:1/7;font-size:clamp(26px,7vw,38px)}.foot-row{grid-template-columns:1fr;gap:4px}.foot-row span,.foot-row .top{justify-self:start}.hero-wrap{height:135vh}.proof-k{grid-column:1/7}}
+/* ===== Round 5 ===== */
+:root{--bb:#eee8dd;--bf:#0b0b0a;--bh:#ffffff}
+html.light{--bb:#121110;--bf:#ece5d9;--bh:#3a362f}
+.btn{background:var(--bb)!important;color:var(--bf)!important;isolation:isolate;transition:transform .7s var(--ease),background-color 1.1s,color 1.1s}
+.btn::after{z-index:-1;background:var(--bh);transition:transform .65s var(--ease)}
+.btn:focus-visible::after{transform:none}
+/* one primary CTA per view: header CTA only appears between hero and finale */
+.bar-cta{opacity:0;pointer-events:none;transform:translateY(-6px);transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.bar.cta .bar-cta{opacity:1;pointer-events:auto;transform:none}
+/* phone menu */
+.mbtn{display:none;min-height:44px;min-width:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(238,232,221,.45);background:transparent;color:var(--fg,#eee8dd);font:500 14px var(--sans);cursor:pointer}
+html.light .bar .mbtn{border-color:var(--ln);color:var(--fg)}
+.menu{position:fixed;inset:0;z-index:90;background:#0b0b0a;color:#eee8dd;padding:16px var(--pad) 28px;display:flex;flex-direction:column;overflow:auto;clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--io)}
+.menu.open{clip-path:inset(0 0 0 0)}
+.menu[hidden]{display:flex;visibility:hidden}
+.menu.open[hidden]{visibility:visible}
+.menu-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.menu-top .mbtn{display:inline-flex;align-items:center;color:#eee8dd;border-color:rgba(238,232,221,.45)}
+.menu-cta{width:100%;background:#eee8dd!important;color:#0b0b0a!important}
+.menu-k{margin:34px 0 8px;font-size:15px;color:rgba(238,232,221,.6);font-weight:500}
+.menu-l{list-style:none;border-top:1px solid rgba(238,232,221,.16)}
+.menu-l a{display:flex;justify-content:space-between;align-items:baseline;min-height:48px;padding:10px 0;border-bottom:1px solid rgba(238,232,221,.16);text-decoration:none;font-weight:500;font-size:clamp(22px,6vw,30px);letter-spacing:-.02em}
+.menu-l a span{font-size:13px;color:rgba(238,232,221,.6);font-weight:400;letter-spacing:0}
+.menu-f{margin-top:auto;padding-top:28px;display:flex;flex-direction:column;gap:4px;font-size:15px}
+.menu-f a{min-height:44px;display:flex;align-items:center;text-decoration:none}
+.menu .m-in{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .8s var(--ease)}
+.menu.open .m-in{opacity:1;transform:none}
+@media (max-width:860px){.mbtn{display:inline-flex;align-items:center}.bar .pp{padding:0 14px}}
+/* small motion/polish lifts */
+.pc-f{box-shadow:0 30px 80px -40px rgba(0,0,0,.8)}
+.card{box-shadow:0 -20px 60px -30px rgba(0,0,0,.35)}
+.how .h2 .ml>span,.how .how-sub{transition-delay:.35s}
+.work-name{height:1.1em!important}
+.work-name .nm{transform:translateY(118%)}.work-name .nm.cur{transform:none}.work-name .nm.gone{transform:translateY(-118%)}
+.menu .mark{text-shadow:none}
+.cursr.hide{width:0;height:0;margin:0}
+.work-name .nm{transition:transform .9s var(--ease),opacity .3s linear}.work-name .nm.gone{opacity:0;transition:transform .6s var(--ease),opacity .18s linear}
