@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Jarrett Wroten | Las Vegas Web Designer</title>
+<meta name="description" content="Cinematic websites for Las Vegas businesses, cut from your own footage. Book a free concept call.">
+<link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=boska@400i,500i&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css?v=4">
+<link rel="preload" as="video" href="film/hero.mp4">
+</head>
+<body>
+<a class="skip" href="#work">Skip To The Work</a>
+<header class="bar">
+  <span class="mark">Jarrett Wroten</span>
+  <div class="bar-r">
+    <button class="pp" id="pp" aria-pressed="false"><span class="pp-i"></span><span class="pp-t">Pause</span></button>
+    <a class="btn btn-sm" href="https://jarrettwroten.com/book/">Book Your Free Concept Call</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" aria-label="Opening film">
+  <video class="hero-v" id="heroV" autoplay muted loop playsinline preload="auto" poster="film/hero.jpg">
+    <source src="film/hero-sm.mp4" media="(max-width: 700px) and (orientation: portrait)" type="video/mp4">
+    <source src="film/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-c">
+        <h1 class="h1"><span class="ln"><span class="w">Your</span> <span class="w">Business,</span></span><span class="ln"><span class="w">Made</span> <em class="w payoff" id="payoff">Cinematic.</em></span></h1>
+    <div class="hero-f r">
+      <p>I'm Jarrett Wroten, the Las Vegas web designer. I build your site from your own footage, and I build a free concept of it before we ever talk.</p>
+      <a class="btn" href="https://jarrettwroten.com/book/">Book Your Free Concept Call</a>
+    </div>
+  </div>
+</section>
+
+<section class="say" aria-label="What I do">
+  <p class="big words">Most people who leave your site never call to tell you why. I find where they go, then I build the fix from <em>your own film.</em></p>
+</section>
+
+<section class="work" id="work" aria-label="The work">
+  <div class="work-pin">
+    <div class="work-l"><h2 class="h2">Eleven Concepts. <em>Open Any Of Them.</em></h2>
+    <ol class="list" id="list"></ol></div>
+    <figure class="screen">
+      <div class="screen-f" id="screen"></div>
+      <figcaption class="cap"><span class="cap-k" id="capK"></span><span class="cap-t" id="capT"></span><a class="open" id="capA" href="#" target="_blank" rel="noopener">Open The Concept</a></figcaption>
+    </figure>
+  </div>
+  <div class="work-steps" id="steps"></div>
+</section>
+
+<section class="how" aria-label="How it works">
+  <h2 class="h2 r">Look. Find The Leak. <em>Build The Fix.</em></h2>
+  <div class="how-g">
+    <div class="how-i r"><h3>Look</h3><p>I walk through your site like a real customer.</p></div>
+    <div class="how-i r"><h3>Find The Leak</h3><p>I find the first place people leave.</p></div>
+    <div class="how-i r"><h3>Build The Fix</h3><p>I build the page, form or follow-up that fixes it.</p></div>
+  </div>
+</section>
+
+<section class="proof" aria-label="One result">
+  <p class="proof-k r">Gross Volume For One Las Vegas Service Business, May 15 To June 15, 2026</p>
+  <p class="proof-n"><span id="num" data-to="40114.81">$40,114.81</span></p>
+  <p class="proof-s r">Up 104.51% From $19,615.40. <span>Your result will depend on your business.</span></p>
+</section>
+
+<section class="me" aria-label="About Jarrett">
+  <div class="me-p r"><img src="jarrett.jpg" alt="Jarrett Wroten" width="900" height="1125" loading="lazy"></div>
+  <div class="me-t">
+    <h2 class="h2 r">I Build The Fix <em>Myself.</em></h2>
+    <p class="r">You work with me from the first look through the finished fix. Every concept on this page I built on spec, from the business's own footage. Your first look is free.</p>
+  </div>
+</section>
+
+<section class="end" aria-label="Book">
+  <video class="end-v" autoplay muted loop playsinline preload="none" poster="film/w-stirling.jpg" data-lazy><source data-src="film/w-stirling.mp4" type="video/mp4"></video>
+  <h2 class="h-end r">Now Let's Look <em>At Yours.</em></h2>
+  <p class="end-p r">Add your current website, pick a time, and I'll build your concept before our call. Fifteen minutes on Google Meet, Pacific time.</p>
+  <div class="end-b r"><a class="btn btn-lg" href="https://jarrettwroten.com/book/">Book Your Free Concept Call</a></div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot-w">Jarrett Wroten</div>
+  <div class="foot-r">
+    <a href="mailto:Jarrett@JarrettWroten.com">Jarrett@JarrettWroten.com</a>
+    <span>Las Vegas, Nevada</span>
+    <button class="top" id="top">Back To Top</button>
+  </div>
+  <p class="fine">Every site shown is a concept I built on spec from the business's own footage. None is shown as a paid client launch.</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="app.js?v=2"></script>
+</body>
+</html>
