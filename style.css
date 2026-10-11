@@ -325,3 +325,12 @@ html.light .bar .mbtn{border-color:var(--ln);color:var(--fg)}
   .track{align-items:flex-start}
   .work-name{margin-top:10px}
 }
+
+/* r7 reviewer gaps */
+.work{height:calc(100vh * 3.2)}
+@media (max-width:860px){.work{height:calc(100vh * 5.5)}.pc-h .pc-c{display:block;margin:6px 0 0}.pc-i{gap:6px 14px}}
+.say{padding-top:clamp(72px,11vh,130px);padding-bottom:clamp(64px,10vh,120px);align-items:start}
+@media (min-width:861px){.say .big{grid-column:4/13;font-size:clamp(34px,4.2vw,72px);max-width:22ch}}
+.pp,.mbtn{border-color:rgba(238,232,221,.78);background:rgba(11,11,10,.38);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#eee8dd;font-weight:600}
+html.light .pp,html.light .bar .mbtn{border-color:rgba(18,17,16,.55);background:rgba(236,229,217,.55);color:var(--fg)}
+.track>.pc:last-child{padding-right:var(--pad);box-sizing:content-box}
