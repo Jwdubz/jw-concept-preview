@@ -8,8 +8,8 @@
 <meta name="description" content="Cinematic websites for Las Vegas businesses, cut from your own footage. Book a free concept call.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=boska@400i,500i&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=13">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=cabinet-grotesk@800&f[]=boska@400i,500i&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=21">
 <link rel="preload" as="video" href="film/hero.mp4">
 </head>
 <body>
@@ -28,6 +28,7 @@
 </header>
 
 <main>
+<div class="hero-wrap" id="heroWrap">
 <section class="hero" aria-label="Opening film">
   <video class="hero-v" id="heroV" autoplay muted loop playsinline preload="auto" poster="film/hero.jpg">
     <source src="film/hero-sm.mp4" media="(max-width: 700px) and (orientation: portrait)" type="video/mp4">
@@ -42,6 +43,8 @@
   </div>
 </section>
 
+</div>
+<div class="mq" aria-hidden="true"><div class="mq-t" data-dir="-1"><span>Your Business, Made <em>Cinematic.</em></span><span>Las Vegas <em>On Film.</em></span><span>Your Business, Made <em>Cinematic.</em></span><span>Las Vegas <em>On Film.</em></span><span>Your Business, Made <em>Cinematic.</em></span><span>Las Vegas <em>On Film.</em></span></div></div>
 <section class="say grid" aria-label="What I do">
   <p class="say-k">Las Vegas, Nevada</p>
   <p class="big words">Most people who leave your site never call to tell you why. I find where they go, then I build the fix from <em>your own film.</em></p>
@@ -59,6 +62,7 @@
   </div>
 </section>
 
+<div class="mq" aria-hidden="true"><div class="mq-t" data-dir="1"><span>Look. Find The Leak. <em>Build The Fix.</em></span><span>Look. Find The Leak. <em>Build The Fix.</em></span><span>Look. Find The Leak. <em>Build The Fix.</em></span><span>Look. Find The Leak. <em>Build The Fix.</em></span></div></div>
 <section class="how" aria-label="How it works">
   <div class="how-head grid">
     <h2 class="h2 mask"><span class="ml"><span>Look. Find The Leak.</span></span><span class="ml"><span><em>Build The Fix.</em></span></span></h2>
@@ -95,6 +99,7 @@
   </div>
 </section>
 </main>
+<div class="cur" id="cur" aria-hidden="true"><span>View</span></div>
 
 <footer class="foot grid">
   <div class="foot-w">Jarrett <em>Wroten</em></div>
@@ -106,6 +111,6 @@
   <p class="fine">Every site shown is a concept I built on spec from the business's own footage. None is shown as a paid client launch.</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="app.js?v=11"></script>
+<script src="app.js?v=20"></script>
 </body>
 </html>

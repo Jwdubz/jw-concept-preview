@@ -200,3 +200,45 @@ img,video{display:block;max-width:100%}
   .hero-f p{font-size:15.5px}
   .card-n{font-size:64px}
 }
+/* ===== Round 3: bold identity ===== */
+:root{--disp:"Cabinet Grotesk","General Sans",system-ui,sans-serif;--ember:#ff5a1f}
+.h1,.h2,.h-end,.work-name,.foot-w,.proof-n,.card-t h3,.intro-name,.mq-t,.big{font-family:var(--disp);font-weight:800}
+.h1{font-size:clamp(64px,12.4vw,236px);line-height:.86;letter-spacing:-.035em}
+.h2{letter-spacing:-.03em;line-height:.9}
+.big{letter-spacing:-.03em;line-height:.98}
+.h1 em,.h2 em,.h-end em,.work-name em,.foot-w em,.mq-t em,.big em,.intro-name em{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;color:var(--ember)}
+.work-name{font-size:clamp(64px,9.6vw,184px);height:clamp(70px,10.4vw,196px);line-height:.95}
+.proof-n{color:var(--bone)}
+.proof-n span::first-letter{color:var(--ember)}
+.card-n em{color:var(--ember)}
+/* hero becomes a frame as you scroll: no hard edge */
+.hero-wrap{position:relative;height:165vh}
+.hero{position:sticky;top:0;background:var(--ink)}
+.hero-v{clip-path:inset(var(--iy,0px) var(--ix,0px) var(--iy,0px) var(--ix,0px) round var(--ir,0px))}
+.hero-c{will-change:transform}
+/* kinetic marquee bands that overlap section edges */
+.mq{position:relative;z-index:3;overflow:hidden;margin-top:-.62em;font-size:clamp(70px,11vw,210px);pointer-events:none;padding:.04em 0}
+.mq-t{display:flex;white-space:nowrap;width:max-content;line-height:.95;letter-spacing:-.03em;will-change:transform}
+.mq-t span{padding-right:.55em}
+.how+.mq,.mq+.how{margin-top:0}
+section.how{padding-top:clamp(80px,12vh,140px)}
+/* overlapping type: names and headlines cross film edges */
+.work-name{margin-top:calc(clamp(70px,10.4vw,196px) * -.42);z-index:4}
+.card-t h3{position:relative;z-index:2;margin-right:-30%}
+.end-t{position:relative;z-index:2;margin-top:calc(clamp(46px,8vw,150px) * -.55)}
+.h-end{font-size:clamp(56px,10vw,190px)}
+/* cursor */
+.cur{position:fixed;left:0;top:0;z-index:80;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--bone);pointer-events:none;display:flex;align-items:center;justify-content:center;transition:width .55s var(--ease),height .55s var(--ease),margin .55s var(--ease),background .4s;opacity:0}
+.cur span{font:600 15px var(--sans);color:var(--ink);opacity:0;transition:opacity .3s}
+.cur.on{opacity:1}.cur.big{width:108px;height:108px;margin:-54px 0 0 -54px;background:var(--ember)}.cur.big span{opacity:1}
+@media (hover:none){.cur{display:none}}
+.track{cursor:grab}.track.drag{cursor:grabbing}
+@media (max-width:860px){
+ .h1{font-size:10.2vw}
+ .mq{font-size:20vw}
+ .work-name{font-size:14vw;height:16vw;margin-top:-6vw}
+ .card-t h3{margin-right:0}
+ .card-f video{transform:scale(1.15);transition:transform 1.6s var(--ease)}.card.in .card-f video{transform:none}
+ .hero-wrap{height:140vh}
+}
+@media (max-width:700px){.hero-c{bottom:34px}}
