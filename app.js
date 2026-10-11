@@ -65,3 +65,6 @@ const pp=$('#pp');pp.onclick=()=>{paused=!paused;pp.setAttribute('aria-pressed',
 // back to top: eased in-out ~1.8s
 $('#top').onclick=()=>lenis.scrollTo(0,{duration:1.8,easing:t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2});
 })();
+(()=>{const bar=document.getElementById('bar')||document.querySelector('.bar');let last=scrollY;
+function f(){const y=scrollY,h=innerHeight;bar.classList.toggle('solid',y>h*0.85);bar.classList.toggle('hide',y>h*0.85&&y>last+2);if(y<last-2)bar.classList.remove('hide');last=y}
+addEventListener('scroll',f,{passive:true});f()})();
