@@ -27,7 +27,7 @@ W.forEach((w,i)=>{const a=document.createElement('a');a.className='pc';a.href=`h
 a.innerHTML=`<div class="pc-f"><video muted loop playsinline preload="${i<3?'auto':'none'}" poster="film/w-${w[0]}.jpg" src="film/w-${w[0]}.mp4"></video></div><div class="pc-i"><span class="pc-n">${String(i+1).padStart(2,'0')}</span><span class="pc-h">${w[1]}<span class="pc-c">${w[2]}</span></span><span class="pc-o">Open The Concept</span></div>`;
 track.append(a);cards.push(a)});
 let cur=-1;
-function setCur(i){if(i===cur)return;cur=i;cards.forEach((c,j)=>{c.classList.toggle('on',j===i);const v=c.querySelector('video');if(Math.abs(j-i)<=1){v.preload='auto';if(!paused)v.play().catch(()=>{})}else v.pause()});wCount.textContent=String(i+1).padStart(2,'0')}
+function setCur(i){if(i===cur)return;cur=i;cards.forEach((c,j)=>{c.classList.toggle('on',j===i);const v=c.querySelector('video');if(Math.abs(j-i)<=1){v.preload='auto';if(!paused)v.play().catch(()=>{})}else v.pause()});wCount.textContent=String(i+1).padStart(2,'0');const wn=$('#wName');const old=wn.querySelector('.cur');if(old){old.classList.remove('cur');old.classList.add('gone');setTimeout(()=>old.remove(),1000)}const sp=document.createElement('span');sp.className='nm';sp.innerHTML=W[i][1].replace(/(\S+)$/,'<em>$1</em>');wn.append(sp);requestAnimationFrame(()=>requestAnimationFrame(()=>sp.classList.add('cur')))}
 // reveals
 const obs=$$('.fade,.mask,.me-p');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});obs.forEach(o=>io.observe(o));
