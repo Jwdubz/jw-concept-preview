@@ -87,13 +87,6 @@ tr.addEventListener('click',e=>{if(moved>6){e.preventDefault();e.stopPropagation
 })();
 (()=>{const $=s=>document.querySelector(s);
 const W=[["rainbow","Rainbow Gardens","Wedding Venue"],["stirling","Stirling Club","Event Venue"],["rana","Rana Levy","Fine Jewelry"],["generations","Generations Kitchen","Restaurant"],["paina","P\u0101\u2018ina Caf\u00e9","Caf\u00e9"],["prorok","Dylan Prorok","Tattoo Artist"],["heritage","Heritage Tattoo","Tattoo Studio"],["truheart","Tru Heart Consulting","Sales Team"],["purpleflare","Purple Flare Wraps","Wraps And Fleet"],["starbase","Starbase Wraps","Tesla Wraps"],["wrapstar","Wrapstar","Wraps And Coating"]];
-const ml=$('#menuL');W.forEach((w,i)=>{const li=document.createElement('li');li.className='m-in';li.style.transitionDelay=(0.12+i*0.03)+'s';li.innerHTML=`<a href="https://${w[0]}.jarrettwroten.com/" target="_blank" rel="noopener">${w[1]}<span>${w[2]}</span></a>`;ml.append(li)});
-const menu=$('#menu'),mb=$('#mbtn'),mc=$('#mclose');let last=null;
-function open(){last=document.activeElement;menu.hidden=false;requestAnimationFrame(()=>menu.classList.add('open'));mb.setAttribute('aria-expanded','true');window.__lenis&&window.__lenis.stop();document.documentElement.style.overflow='hidden';setTimeout(()=>mc.focus(),50)}
-function close(){menu.classList.remove('open');mb.setAttribute('aria-expanded','false');window.__lenis&&window.__lenis.start();document.documentElement.style.overflow='';setTimeout(()=>{menu.hidden=true},800);(last||mb).focus()}
-mb.onclick=open;mc.onclick=close;
-addEventListener('keydown',e=>{if(menu.hidden)return;if(e.key==='Escape')close();if(e.key==='Tab'){const f=[...menu.querySelectorAll('a,button')];const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}});
-menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setTimeout(close,100)));
 // header CTA: only between hero and finale (one primary CTA per view)
 const bar=$('#bar'),hero=$('#heroWrap'),end=$('.end');
 function cta(){const vh=innerHeight,h=hero.getBoundingClientRect(),e=end.getBoundingClientRect();bar.classList.toggle('cta',h.bottom<vh*.4&&e.top>vh*.85)}
