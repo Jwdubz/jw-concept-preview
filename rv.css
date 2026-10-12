@@ -1,8 +1,8 @@
 /* Payoff reveal prototypes (preview only, loaded with ?v=) */
 [class*="rv-"] .h1 .payoff{opacity:1!important;transition:none}
 .rv-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.rv-svg{display:inline-block;height:.77em;width:4.06em;vertical-align:-.025em;overflow:visible;filter:drop-shadow(0 2px 14px rgba(0,0,0,.42)) drop-shadow(0 1px 2px rgba(0,0,0,.3))}
-.rv-line path{fill:none;stroke:#eee8dd;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:1}
+.rv-svg{display:inline-block;height:.77em;width:4.213em;vertical-align:-.025em;overflow:visible;filter:drop-shadow(0 2px 14px rgba(0,0,0,.42)) drop-shadow(0 1px 2px rgba(0,0,0,.3))}
+.rv-line path{fill:none;stroke:#eee8dd;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 1;stroke-dashoffset:1}
 .rv-fill path{fill:#eee8dd}
 .rv-fill{opacity:0}
 .rv-drawing .rv-line path{stroke-dashoffset:0;transition:stroke-dashoffset 1.05s cubic-bezier(.55,.05,.3,1) calc(var(--g)*.045s)}
@@ -18,3 +18,4 @@
 .rv-flare.rv-done .h1 .payoff{background:none;color:#eee8dd;-webkit-background-clip:border-box;background-clip:border-box;transition:none}
 @keyframes rvFlare{0%{opacity:0;transform:translateX(-40%) scaleY(.4)}25%{opacity:1}100%{opacity:0;transform:translateX(260%) scaleY(.6)}}
 @media (prefers-reduced-motion: reduce){[class*="rv-"] .h1 .payoff,[class*="rv-"] .rv-svg *{transition:none!important;animation:none!important}}
+.rv-flare .h1 .payoff{font-weight:500}
