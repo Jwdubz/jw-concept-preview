@@ -344,3 +344,19 @@ html.light .pp,html.light .bar .mbtn{border-color:rgba(18,17,16,.55);background:
 
 /* perf: hero copy starts at an invisible .01 under the intro curtain (no visual change) so it registers as painted */
 .hero .fade{opacity:.01}.ready .hero .fade{opacity:1}
+
+/* Android QA 2026-10-12 (ported from jw-mobile-fix 480c3d1): phones show every clip at its real frame, no cover crop, no 1.08x, no booking clip-path; Dylan's phone scroll keeps its native 4:5 */
+@media (max-width:860px){
+  .track{align-items:flex-start!important}
+  .pc{height:auto!important;align-self:flex-start!important}
+  .pc-f{height:auto!important;width:86vw!important;max-width:86vw!important;aspect-ratio:16/9!important}
+  .pc-f video{inset:0!important;width:100%!important;height:100%!important;transform:none!important}
+  .pc-f:has(video[src*="prorok-scroll-m"]){width:min(86vw,calc((100svh - 300px) * .8))!important;aspect-ratio:780/976!important}
+  .card-f{aspect-ratio:16/9!important;min-height:0!important;flex:none!important}
+  .card-f:has(video[data-src-m*="prorok-scroll-m"]){aspect-ratio:780/976!important}
+  .end-v-w{clip-path:none!important}
+  .end-v{aspect-ratio:16/9!important}
+  .walk{flex-direction:column;align-items:stretch;min-height:0!important;padding-top:96px}
+  .walk-bg{position:relative;inset:auto;z-index:0;width:100%;aspect-ratio:16/9;margin-bottom:28px;border-radius:6px;overflow:hidden}
+  .walk-bg::after{display:none}
+}
