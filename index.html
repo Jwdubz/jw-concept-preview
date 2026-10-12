@@ -13,7 +13,7 @@
 <style>.rvp .h1 .payoff{opacity:0!important}</style><script>/[?&]v=(draw|flare|drawlight|script[23]?|pinyon-purple|pinyon-gold)\b/.test(location.search)&&document.documentElement.classList.add("rvp")</script>
 <style>.card:nth-child(4){top:calc(clamp(90px,12vh,120px) + 66px)}@media (max-width:1024px){.card:nth-child(4){top:112px!important}}@media (max-width:860px){.card:nth-child(4){top:auto!important}}.card-pr{margin-top:14px;font-size:15px!important}.card-t .btn{margin-top:18px}</style>
 <link rel="preload" as="image" href="film/hero.jpg?v=1011r" fetchpriority="high">
-<style>@media (max-width:520px){.bar .mark{font-size:16.5px}}</style>
+<style>.bar .cta-s{display:none}@media (max-width:860px){.bar .btn-sm.bar-cta{display:inline-flex}}@media (max-width:520px){.bar .mark{font-size:14px}.bar .cta-l{display:none}.bar .cta-s{display:inline}.bar .btn-sm.bar-cta{padding:0 14px;font-size:13px;min-height:44px}.bar .bar-r{gap:8px}.bar .pp{width:44px;min-width:44px;padding:0;justify-content:center}.bar .pp .pp-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}</style>
 </head>
 <body>
 <div class="intro" id="intro" aria-hidden="true">
@@ -26,7 +26,7 @@
   <span class="mark" style="white-space:nowrap">Jarrett Wroten <span class="mk2">Web Design</span></span>
   <div class="bar-r">
     <button class="pp" id="pp" aria-pressed="false"><span class="pp-i"></span><span class="pp-t">Pause</span></button>
-    <a class="btn btn-sm bar-cta" href="https://jarrettwroten.com/book/">Book Your Free Concept Call</a>
+    <a class="btn btn-sm bar-cta" href="https://jarrettwroten.com/book/"><span class="cta-l">Book Your Free Concept Call</span><span class="cta-s">Book a Call</span></a>
   </div>
 </header>
 
@@ -53,7 +53,7 @@ var sr=document.createElement("span");sr.className="rv-sr";sr.textContent=po.tex
 var Ls=P[1].map(function(p){return p.getTotalLength()}),T=Ls.reduce(function(a,b){return a+b},0),TR=34,DUR=(VT?3800:VS?4100:VG?4200:1750),t0=0;
 function set(L){var acc=0,tp=null;for(var i=0;i<Ls.length;i++){var l=Ls[i],v=Math.max(0,Math.min(l,L-acc));for(var k=0;k<2;k++){var q=P[k][i].style;q.strokeDasharray=v+" "+(l+1);q.visibility=v>0?"visible":"hidden"}var a=Math.max(0,L-acc-TR),b=v-a,q2=P[2][i].style;q2.strokeDasharray=b+" "+(2*l+2);q2.strokeDashoffset=-a;q2.visibility=b>0?"visible":"hidden";if(!tp&&L-acc>=0&&L-acc<l)tp=P[1][i].getPointAtLength(v);acc+=l}if(tp&&L<T){tip.setAttribute("cx",tp.x);tip.setAttribute("cy",tp.y);tip.style.opacity=1}else tip.style.opacity=0}
 function seg(i0,i1,L){var acc=0,tp=null;for(var i=i0;i<i1;i++){var l=Ls[i],v=Math.max(0,Math.min(l,L-acc));for(var k=0;k<2;k++){var q=P[k][i].style;q.strokeDasharray=v+" "+(l+1);q.visibility=v>0?"visible":"hidden"}var a=Math.max(0,L-acc-TR),b=v-a,q2=P[2][i].style;q2.strokeDasharray=b+" "+(2*l+2);q2.strokeDashoffset=-a;q2.visibility=b>0?"visible":"hidden";if(!tp&&L-acc>=0&&L-acc<l)tp=P[1][i].getPointAtLength(v);acc+=l}return tp}
-var tip2=null;function setT(p){var LC=Ls[0]+Ls[1]+Ls[2]+Ls[3];if(!tip2){tip2=tip.cloneNode();s.appendChild(tip2)}var a=seg(0,4,LC*p),b=seg(4,Ls.length,(T-LC)*p);[[tip,a],[tip2,b]].forEach(function(x){if(x[1]&&p<1){x[0].setAttribute("cx",x[1].x);x[0].setAttribute("cy",x[1].y);x[0].style.opacity=1}else x[0].style.opacity=0})}
+var tip2=null;function setT(p){var LC=Ls[0]+Ls[1]+Ls[2]+Ls[3];if(!tip2){tip2=tip.cloneNode();s.appendChild(tip2)}var pc=Math.min(1,p*3.8),a=seg(0,4,LC*pc),b=seg(4,Ls.length,(T-LC)*p);[[tip,a,pc],[tip2,b,p]].forEach(function(x){if(x[1]&&x[2]<1){x[0].setAttribute("cx",x[1].x);x[0].setAttribute("cy",x[1].y);x[0].style.opacity=1}else x[0].style.opacity=0})}
 function fin(){set(T);tip2&&(tip2.style.opacity=0);r.classList.add("rv-sdone");VG&&shine()}
 function shine(){if(s.querySelector(".shn"))return;var sh=document.createElementNS(ns,"path");sh.setAttribute("d",R.F);sh.setAttribute("class","shn");sh.setAttribute("fill","url(#rvshine)");s.appendChild(sh);var sp=document.createElementNS(ns,"path");sp.setAttribute("class","spk");sp.setAttribute("d","M0 -6 L1.2 -1.2 L6 0 L1.2 1.2 L0 6 L-1.2 1.2 L-6 0 L-1.2 -1.2Z");s.appendChild(sp);var gr=document.getElementById("rvshine"),x0=vb[0]-80,x1=vb[0]+vb[2]+40,D=1100,ts=0,nx=0;
 function fr(n){if(r.classList.contains("paused")){gr.setAttribute("gradientTransform","translate(-9999 0)");sp.style.opacity=0;ts=0;nx=n+1500;requestAnimationFrame(fr);return}if(!ts){if(n<nx){requestAnimationFrame(fr);return}ts=n}var p=(n-ts)/D;if(p<=1){var e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;gr.setAttribute("gradientTransform","translate("+(x0+(x1-x0)*e)+" "+(vb[1]+vb[3])+")");sp.style.opacity=0}else{gr.setAttribute("gradientTransform","translate(-9999 0)");var q=(p-1)*D/700;if(q<1){sp.setAttribute("transform","translate("+(vb[0]+vb[2]-12)+" "+(vb[1]+18)+") scale("+(.4+.8*Math.sin(q*Math.PI))+") rotate("+q*45+")");sp.style.opacity=Math.sin(q*Math.PI)}else{sp.style.opacity=0;ts=0;nx=n+6200}}requestAnimationFrame(fr)}nx=performance.now()+500;requestAnimationFrame(fr)}set(0);
