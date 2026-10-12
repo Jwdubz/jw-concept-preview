@@ -32,8 +32,8 @@ function setCur(i){if(i===cur)return;cur=i;cards.forEach((c,j)=>{c.classList.tog
 const obs=$$('.fade,.mask,.me-p');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});obs.forEach(o=>io.observe(o));
 // lazy videos
-const lz=$$('video[data-src]');
-const lio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=v.dataset.src;if(!paused)v.play().catch(()=>{})}else v.pause()}),{rootMargin:'300px'});lz.forEach(v=>lio.observe(v));
+const lz=$$('video[data-src]');const lzM=matchMedia('(max-width:860px)').matches;lz.forEach(v=>{if(lzM&&v.dataset.posterM)v.poster=v.dataset.posterM});
+const lio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=(lzM&&v.dataset.srcM)||v.dataset.src;if(!paused)v.play().catch(()=>{})}else v.pause()}),{rootMargin:'300px'});lz.forEach(v=>lio.observe(v));
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(!paused)hv.play().catch(()=>{})}else hv.pause()})).observe(hv);
 // counter
 const num=$('#num');let counted=false;
