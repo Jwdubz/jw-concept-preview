@@ -17,5 +17,4 @@
 .rv-flare.rv-on .h1 .payoff::after{animation:rvFlare 1.4s cubic-bezier(.45,0,.2,1) .05s both}
 .rv-flare.rv-done .h1 .payoff{background:none;color:#eee8dd;-webkit-background-clip:border-box;background-clip:border-box;transition:none}
 @keyframes rvFlare{0%{opacity:0;transform:translateX(-40%) scaleY(.4)}25%{opacity:1}100%{opacity:0;transform:translateX(260%) scaleY(.6)}}
-@media (prefers-reduced-motion: reduce){[class*="rv-"] .h1 .payoff,[class*="rv-"] .rv-svg *{transition:none!important;animation:none!important}}
 .rv-flare .h1 .payoff{font-weight:500}
