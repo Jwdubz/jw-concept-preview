@@ -334,3 +334,10 @@ html.light .bar .mbtn{border-color:var(--ln);color:var(--fg)}
 .pp,.mbtn{border-color:rgba(238,232,221,.78);background:rgba(11,11,10,.38);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#eee8dd;font-weight:600}
 html.light .pp,html.light .bar .mbtn{border-color:rgba(18,17,16,.55);background:rgba(236,229,217,.55);color:var(--fg)}
 .track>.pc:last-child{padding-right:var(--pad);box-sizing:content-box}
+
+/* device QA: card always fits its track on short phones, iOS Safari and tablets (no overlap with the name line) */
+@media (max-width:860px){
+  .track{align-items:stretch}
+  .pc{height:100%;align-self:stretch}
+  .pc-f{height:calc(var(--trackH,60svh) - 136px);width:auto;max-width:86vw;aspect-ratio:4/5}
+}

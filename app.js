@@ -113,3 +113,6 @@ v.addEventListener('timeupdate',()=>{if(v.duration)sc.value=Math.round(v.current
 v.addEventListener('ended',()=>{end.hidden=false});
 sc.addEventListener('input',()=>{if(v.duration){v.pause();v.currentTime=sc.value/1000*v.duration;end.hidden=true}});
 sc.addEventListener('change',()=>{if(v.currentTime<v.duration-0.05){const p=v.play();if(p&&p.catch)p.catch(()=>{})}});})();
+
+/* device QA: give the mobile card frame the real track height so the card never runs into the name line */
+(function(){const t=document.getElementById('track');if(!t)return;const f=()=>{document.documentElement.style.setProperty('--trackH',t.clientHeight+'px')};f();addEventListener('resize',f,{passive:true});addEventListener('orientationchange',()=>setTimeout(f,300));addEventListener('load',f)})();
