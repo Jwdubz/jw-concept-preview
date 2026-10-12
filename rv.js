@@ -1,0 +1,33 @@
+/* Payoff reveal prototypes for "Cinematic." — ?v=draw | ?v=flare | ?v=drawlight. Preview only. */
+(()=>{
+const V=new URLSearchParams(location.search).get('v');if(!/^(draw|flare|drawlight)$/.test(V||''))return;
+const root=document.documentElement,po=document.getElementById('payoff'),hv=document.getElementById('heroV');if(!po||!hv)return;
+root.classList.add('rv-'+V);
+const CUT=5.533,LAND=CUT+.25,RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const SUB=[[0,"M224 970Q135 970 88.5 904.5Q42 839 42 710Q42 628 62.0 545.5Q82 463 119.0 393.0Q156 323 217.5 279.0Q279 235 354 235Q380 235 405.0 241.0Q430 247 443 247Q460 247 475 243H482L451 416H441Q449 366 449 347Q449 290 430.5 266.5Q412 243 354.0 243.0Q296 243 248.5 290.5Q201 338 172.5 411.5Q144 485 129.0 565.0Q114 645 114 717Q114 832 143.5 893.0Q173 954 244 954Q278 954 305.5 939.0Q333 924 350.5 898.5Q368 873 378.0 850.0Q388 827 394 801H404Q398 827 387.0 853.0Q376 879 355.5 907.0Q335 935 301.0 952.5Q267 970 224 970Z"],[1,"M637 348Q623 348 614.5 339.0Q606 330 606 317Q606 297 620.0 282.0Q634 267 654 267Q668 267 677.5 275.5Q687 284 687 297Q687 318 672.0 333.0Q657 348 637 348Z"],[1,"M652 475 578 895Q573 926 573 934Q573 952 594 952H638L637 960H554Q512 960 512 931Q512 918 516 899L589 483H519L521 475Z"],[2,"M875 624 816 960H754L838 483H768L770 475H901L879 602L895 577Q965 465 1065 465Q1113 465 1138.5 489.0Q1164 513 1164 571Q1164 602 1157 638L1111 895Q1107 920 1107 934Q1107 952 1127 952H1172L1171 960H1088Q1045 960 1045 931Q1045 922 1050 899L1095 638Q1105 576 1105 549Q1105 512 1090.0 496.0Q1075 480 1044 480Q965 480 901 583Z"],[3,"M1480 955Q1532 955 1567.0 921.5Q1602 888 1609 840H1618Q1610 895 1566.5 932.5Q1523 970 1455 970Q1376 970 1330.5 920.5Q1285 871 1285 779Q1285 645 1354.0 555.0Q1423 465 1531 465Q1598 465 1632.0 489.5Q1666 514 1666 556Q1666 624 1604.0 661.5Q1542 699 1439 699H1395V692H1438Q1526 692 1566.5 651.5Q1607 611 1607 549Q1607 473 1530 473Q1444 473 1398.0 559.0Q1352 645 1352 773Q1352 955 1480 955Z"],[4,"M1862 625 1803 960H1741L1825 483H1755L1757 475H1888L1866 601L1881 577Q1950 465 2044 465Q2092 465 2117.0 489.0Q2142 513 2142 571Q2142 592 2141 602L2156 577Q2223 465 2318 465Q2366 465 2391.5 489.0Q2417 513 2417 571Q2417 602 2410 638L2365 895Q2360 926 2360 934Q2360 952 2381 952H2425L2424 960H2341Q2299 960 2299 931Q2299 918 2303 899L2348 638Q2358 576 2358 549Q2358 512 2343.5 496.0Q2329 480 2298 480Q2224 480 2162 583L2137 624L2079 960H2018L2073 638Q2083 585 2083 549Q2083 512 2068.5 496.0Q2054 480 2023 480Q1950 480 1888 583Z"],[5,"M2814 873Q2795 917 2760.0 943.5Q2725 970 2679 970Q2607 970 2570.0 923.5Q2533 877 2533 796Q2533 714 2559.5 640.0Q2586 566 2643.0 515.5Q2700 465 2775 465Q2852 465 2880 521L2888 475H2951L2877 895Q2873 924 2873 934Q2873 952 2893 952H2938L2937 960H2853Q2812 960 2812 931Q2812 918 2823 852Z"],[5,"M2599 806Q2599 838 2602.0 860.0Q2605 882 2614.0 906.0Q2623 930 2644.5 942.5Q2666 955 2698 955Q2731 955 2761.5 930.0Q2792 905 2807 868L2829 816L2877 538Q2855 477 2783 477Q2734 477 2696.5 509.5Q2659 542 2639.0 593.0Q2619 644 2609.0 698.5Q2599 753 2599 806Z"],[6,"M3074 483 3076 475H3090Q3135 475 3159.0 446.0Q3183 417 3205 354H3215L3194 475H3297L3295 483H3192L3130 838Q3125 868 3125 885Q3125 953 3177 953Q3210 953 3230 927L3235 930Q3208 970 3153 970Q3111 970 3088.0 944.5Q3065 919 3065 873Q3065 855 3068 837L3129 483Z"],[7,"M3458 348Q3444 348 3435.5 339.0Q3427 330 3427 317Q3427 297 3441.0 282.0Q3455 267 3475 267Q3489 267 3498.5 275.5Q3508 284 3508 297Q3508 318 3493.0 333.0Q3478 348 3458 348Z"],[7,"M3473 475 3399 895Q3394 926 3394 934Q3394 952 3415 952H3459L3458 960H3375Q3333 960 3333 931Q3333 918 3337 899L3410 483H3340L3342 475Z"],[8,"M3749 955Q3799 955 3832.5 921.5Q3866 888 3873 840H3882Q3874 895 3833.0 932.5Q3792 970 3727 970Q3652 970 3608.0 920.5Q3564 871 3564 779Q3564 647 3635.0 556.0Q3706 465 3811 465Q3870 465 3901.0 488.0Q3932 511 3932.0 550.0Q3932 589 3907.0 612.0Q3882 635 3842 640L3840 637Q3879 606 3879 544Q3879 473 3809 473Q3723 473 3677.0 559.0Q3631 645 3631 773Q3631 955 3749 955Z"],[9,"M4014 970Q3998 970 3987.0 959.0Q3976 948 3976 932Q3976 915 3989.0 901.0Q4002 887 4022 887Q4039 887 4049.5 897.0Q4060 907 4060 923Q4060 941 4047.0 955.5Q4034 970 4014 970Z"]];
+if(V!=='flare'){
+ const ns='http://www.w3.org/2000/svg';
+ const svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','20 215 4060 770');svg.setAttribute('aria-hidden','true');svg.setAttribute('class','rv-svg');
+ let defs='';if(V==='drawlight')defs='<defs><linearGradient id="rvG" gradientUnits="userSpaceOnUse" x1="-1400" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#eee8dd"/><stop offset=".42" stop-color="#eee8dd"/><stop offset=".5" stop-color="#fff"/><stop offset=".58" stop-color="#eee8dd"/><stop offset="1" stop-color="#eee8dd"/></linearGradient></defs>';
+ svg.innerHTML=defs+'<g class="rv-fill">'+[...new Set(SUB.map(s=>s[0]))].map(g=>'<path d="'+SUB.filter(s=>s[0]===g).map(s=>s[1]).join('')+'"/>').join('')+'</g><g class="rv-line">'+SUB.map(s=>'<path pathLength="1" style="--g:'+s[0]+'" d="'+s[1]+'"/>').join('')+'</g>';
+ const sr=document.createElement('span');sr.className='rv-sr';sr.textContent=po.textContent;po.textContent='';po.append(sr,svg);
+}
+function sweep(){const g=document.getElementById('rvG');if(!g)return;const s0=performance.now(),D=1250;(function f(n){const p=Math.min(1,(n-s0)/D),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2,x=-1400+e*5800;g.setAttribute('x1',x);g.setAttribute('x2',x+1400);if(p<1)requestAnimationFrame(f)})(s0)}
+function fin(){root.classList.add('rv-on','rv-done')}
+if(RM){fin();return}
+let st=0;
+function tick(){
+ const t=hv.currentTime,ready=root.classList.contains('ready'),paused=root.classList.contains('paused');
+ if(paused&&!st){fin();st=3;return}
+ if(!ready){return}
+ if(V==='flare'){if(t>=LAND&&!st){st=3;root.classList.add('rv-on');setTimeout(()=>root.classList.add('rv-done'),1600)}}
+ else{
+  if(st<1&&t>=CUT-1.15&&t<CUT+2){st=1;root.classList.add('rv-drawing')}
+  if(st<2&&t>=LAND){st=2;root.classList.add('rv-drawing','rv-on');sweep();setTimeout(()=>root.classList.add('rv-done'),1700)}
+ }
+}
+hv.addEventListener('timeupdate',tick);
+(function f(){tick();if(st<2||(V==='flare'&&st<3))requestAnimationFrame(f)})();
+// fail-safe: if the film never reaches the cut (stall/autoplay blocked), land it 8s after the intro
+setTimeout(()=>{if(st<2){root.classList.add('rv-drawing','rv-on');st=2;sweep();setTimeout(()=>root.classList.add('rv-done'),1700)}},9500);
+})();
