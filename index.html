@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=boska@400i,500i&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=boska@400i,500i&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="style.css?v=47">
-<link rel="stylesheet" href="flow.css?v=1">
+<style>.card:nth-child(4){top:calc(clamp(90px,12vh,120px) + 66px)}@media (max-width:1024px){.card:nth-child(4){top:112px!important}}@media (max-width:860px){.card:nth-child(4){top:auto!important}}.card-pr{margin-top:14px;font-size:15px!important}.card-t .btn{margin-top:18px}</style>
 <script>if(/[?&]v=(draw|flare|drawlight)\b/.test(location.search)){var l=document.createElement("link");l.rel="stylesheet";l.href="rv.css?v=2";document.head.appendChild(l);var b=document.createElement("link");b.rel="stylesheet";b.href="https://api.fontshare.com/v2/css?f[]=boska@400i,500i&display=optional";document.head.appendChild(b)}</script>
 <link rel="preload" as="image" href="film/hero.jpg?v=1011r" fetchpriority="high">
 </head>
@@ -71,25 +71,16 @@
   </div>
 </section>
 
-<section class="flow" data-theme="light" id="flow" aria-label="How It Works">
-  <div class="flow-st">
-    <div class="flow-top">
-      <h2 class="flow-h mask"><span class="ml"><span>Your Footage In.</span></span><span class="ml"><span><em>A Site You Can Feel.</em></span></span></h2>
-      <p class="flow-k"><span class="flow-ix" id="flowIx">i</span><span class="flow-of"><em>of</em> iv</span></p>
-    </div>
-    <div class="flow-f" id="flowF">
-      <video muted loop playsinline preload="none" poster="film/w-rainbow.jpg?v=1011s" data-fs="film/w-rainbow.mp4?v=1011s" class="on"></video>
-      <video muted loop playsinline preload="none" poster="film/w-rana.jpg?v=1011s" data-fs="film/w-rana.mp4?v=1011s"></video>
-      <video muted loop playsinline preload="none" poster="film/w-generations.jpg?v=1011s" data-fs="film/w-generations.mp4?v=1011s"></video>
-      <video muted loop playsinline preload="none" poster="film/w-prorok.jpg?v=1011s" data-fs="film/w-prorok.mp4?v=1011s"></video>
-    </div>
-    <ol class="flow-b" id="flowB">
-      <li class="on"><h3 class="flow-t"><span>See</span> <span>Your</span> <em>Work.</em></h3><p>I go through your Instagram, YouTube and website, and pull the best film you've already shot.</p></li>
-      <li><h3 class="flow-t"><span>Build</span> <span>Your</span> <em>Concept.</em></h3><p>Before we ever talk, I build a working concept of your new site from that film. It's free.</p></li>
-      <li><h3 class="flow-t"><span>Feel</span> <span>It</span> <em>First.</em></h3><p>You click through it on your own phone, the way your customers will. Love it, and we make it yours. If not, you owe nothing.</p></li>
-      <li><h3 class="flow-t"><span>Keep</span> <em>Winning.</em></h3><p>I launch it on your domain and set up your Google search so new customers find you.</p><p class="flow-pr"><em>Dylan Prorok, Japanese Tattoo Artist.</em> His first customer from Google came in two weeks after launch.</p><a class="btn" href="https://jarrettwroten.com/book/">Book Your Free Concept Call</a></li>
-    </ol>
-    <div class="flow-r" aria-hidden="true"><span>See Your Work</span><span>Build Your Concept</span><span>Feel It First</span><span>Keep Winning</span><i id="flowR"></i></div>
+<section class="how" data-theme="light" id="flow" aria-label="How it works">
+  <div class="how-head grid">
+    <h2 class="h2 mask"><span class="ml"><span>Your Footage In.</span></span><span class="ml"><span><em>A Site You Can Feel.</em></span></span></h2>
+    <p class="how-sub">Every concept starts the same way, and your first look is free.</p>
+  </div>
+  <div class="stack">
+    <article class="card"><div class="card-n"><em>i</em></div><div class="card-t"><h3>See Your Work</h3><p>I go through your Instagram, YouTube and website, and pull the best film you've already shot.</p></div><div class="card-f"><video muted loop playsinline preload="none" poster="film/w-rainbow.jpg?v=1011s" data-src="film/w-rainbow.mp4?v=1011s"></video></div></article>
+    <article class="card"><div class="card-n"><em>ii</em></div><div class="card-t"><h3>Build Your Concept</h3><p>Before we ever talk, I build a working concept of your new site from that film. It's free.</p></div><div class="card-f"><video muted loop playsinline preload="none" poster="film/w-rana.jpg?v=1011s" data-src="film/w-rana.mp4?v=1011s"></video></div></article>
+    <article class="card"><div class="card-n"><em>iii</em></div><div class="card-t"><h3>Feel It First</h3><p>You click through it on your own phone, the way your customers will. Love it, and we make it yours. If not, you owe nothing.</p></div><div class="card-f"><video muted loop playsinline preload="none" poster="film/w-generations.jpg?v=1011s" data-src="film/w-generations.mp4?v=1011s"></video></div></article>
+    <article class="card"><div class="card-n"><em>iv</em></div><div class="card-t"><h3>Keep Winning</h3><p>I launch it on your domain and set up your Google search so new customers find you.</p><p class="card-pr"><em>Dylan Prorok, Japanese Tattoo Artist.</em> His first customer from Google came in two weeks after launch.</p><a class="btn" href="https://jarrettwroten.com/book/">Book Your Free Concept Call</a></div><div class="card-f"><video muted loop playsinline preload="none" poster="film/w-prorok.jpg?v=1011s" data-src="film/w-prorok.mp4?v=1011s"></video></div></article>
   </div>
 </section>
 
@@ -154,7 +145,6 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="app.js?v=48"></script>
-<script src="flow.js?v=1"></script>
 <script>if(/[?&]v=(draw|flare|drawlight)\b/.test(location.search)){var s=document.createElement("script");s.src="rv.js?v=2";document.body.appendChild(s)}</script>
 </body>
 </html>
