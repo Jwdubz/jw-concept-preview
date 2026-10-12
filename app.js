@@ -24,10 +24,10 @@ const wds=[...big.querySelectorAll('.wd')];
 // horizontal track
 const track=$('#track'),work=$('.work'),wCount=$('#wCount'),wProg=$('#wProg');const cards=[];
 W.forEach((w,i)=>{const a=document.createElement('a');a.className='pc';a.href=`https://${w[0]}.jarrettwroten.com/`;a.target='_blank';a.rel='noopener';a.setAttribute('aria-label',`Open The ${w[1]} Concept`);
-a.innerHTML=`<div class="pc-f"><video muted loop playsinline preload="${i<3?'auto':'none'}" poster="film/w-${w[0]}.jpg" src="film/w-${w[0]}.mp4"></video></div><div class="pc-i"><span class="pc-n">${String(i+1).padStart(2,'0')}</span><span class="pc-h">${w[1]}<span class="pc-c">${w[2]}</span></span><span class="pc-o">Open The Concept</span></div>`;
+a.innerHTML=`<div class="pc-f"><video muted loop playsinline preload="none" poster="film/w-${w[0]}.jpg" src="film/w-${w[0]}.mp4"></video></div><div class="pc-i"><span class="pc-n">${String(i+1).padStart(2,'0')}</span><span class="pc-h">${w[1]}<span class="pc-c">${w[2]}</span></span><span class="pc-o">Open The Concept</span></div>`;
 track.append(a);cards.push(a)});
 let cur=-1;
-function setCur(i){if(i===cur)return;cur=i;cards.forEach((c,j)=>{c.classList.toggle('on',j===i);const v=c.querySelector('video');if(Math.abs(j-i)<=1){v.preload='auto';if(!paused)v.play().catch(()=>{})}else v.pause()});wCount.textContent=String(i+1).padStart(2,'0');const wn=$('#wName');wn.querySelectorAll('.nm:not(.gone)').forEach(o=>{o.classList.remove('cur');o.classList.add('gone');setTimeout(()=>o.remove(),1000)});const sp=document.createElement('span');sp.className='nm';sp.innerHTML=W[i][1].replace(/(\S+)$/,'<em>$1</em>');wn.append(sp);sp.style.fontSize='';const aw=wn.clientWidth;if(sp.scrollWidth>aw){sp.style.fontSize=(parseFloat(getComputedStyle(sp).fontSize)*aw/sp.scrollWidth*0.98)+'px'}requestAnimationFrame(()=>requestAnimationFrame(()=>sp.classList.add('cur')))}
+function setCur(i){if(i===cur)return;cur=i;cards.forEach((c,j)=>{c.classList.toggle('on',j===i);const v=c.querySelector('video');if(!window.__wn)return;if(Math.abs(j-i)<=1){v.preload='auto';if(!paused)v.play().catch(()=>{})}else v.pause()});wCount.textContent=String(i+1).padStart(2,'0');const wn=$('#wName');wn.querySelectorAll('.nm:not(.gone)').forEach(o=>{o.classList.remove('cur');o.classList.add('gone');setTimeout(()=>o.remove(),1000)});const sp=document.createElement('span');sp.className='nm';sp.innerHTML=W[i][1].replace(/(\S+)$/,'<em>$1</em>');wn.append(sp);sp.style.fontSize='';const aw=wn.clientWidth;if(sp.scrollWidth>aw){sp.style.fontSize=(parseFloat(getComputedStyle(sp).fontSize)*aw/sp.scrollWidth*0.98)+'px'}requestAnimationFrame(()=>requestAnimationFrame(()=>sp.classList.add('cur')))}
 // reveals
 const obs=$$('.fade,.mask,.me-p');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});obs.forEach(o=>io.observe(o));
@@ -51,6 +51,7 @@ function onScroll(){const vh=innerHeight,y=scrollY;
  bar.classList.toggle('solid',y>vh*.85);if(y>vh*.85&&y>last+2)bar.classList.add('hide');if(y<last-2||y<vh*.85)bar.classList.remove('hide');last=y;
  if(y+vh>=document.documentElement.scrollHeight-40){root.classList.add('done');obs.forEach(o=>o.classList.add('in'))}}
 lenis.on('scroll',onScroll);addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();setCur(0);
+{const wk=document.querySelector('.work');new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){window.__wn=1;o.disconnect();const k=cur;cur=-1;setCur(k)}},{rootMargin:'100% 0px'}).observe(wk)}
 setInterval(()=>obs.forEach(o=>{if(o.getBoundingClientRect().top<innerHeight)o.classList.add('in')}),900);
 // pause
 const pp=$('#pp');pp.onclick=()=>{paused=!paused;pp.setAttribute('aria-pressed',paused);pp.querySelector('.pp-t').textContent=paused?'Play':'Pause';root.classList.toggle('paused',paused);
