@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://api.fontshare.com"><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=boska@400i,500i&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&f[]=boska@400i,500i&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="style.css?v=47">
+<link rel="stylesheet" href="flow.css?v=1">
 <script>if(/[?&]v=(draw|flare|drawlight)\b/.test(location.search)){var l=document.createElement("link");l.rel="stylesheet";l.href="rv.css?v=1";document.head.appendChild(l);var b=document.createElement("link");b.rel="stylesheet";b.href="https://api.fontshare.com/v2/css?f[]=boska@400i,500i&display=swap";document.head.appendChild(b)}</script>
 <link rel="preload" as="image" href="film/hero.jpg?v=1011r" fetchpriority="high">
 </head>
@@ -55,7 +56,7 @@
 </div>
 <section class="say grid" data-theme="dark" aria-label="What I do">
   <p class="say-k">Las Vegas, Nevada</p>
-  <p class="big words">Most people who leave your site never call to tell you why. I find where they go, then I build the fix from <em>your own film.</em></p>
+  <p class="big words">You've already filmed your best work. I turn it into a site that feels like walking through your door, built from <em>your own film.</em></p>
 </section>
 
 <section class="work" data-theme="dark" id="work" aria-label="The work">
@@ -70,15 +71,25 @@
   </div>
 </section>
 
-<section class="how" data-theme="light" aria-label="How it works">
-  <div class="how-head grid">
-    <h2 class="h2 mask"><span class="ml"><span>Look. Find The Leak.</span></span><span class="ml"><span><em>Build The Fix.</em></span></span></h2>
-    <p class="how-sub">Every concept starts the same way, and your first look is free.</p>
-  </div>
-  <div class="stack">
-    <article class="card"><div class="card-n"><em>i</em></div><div class="card-t"><h3>Look</h3><p>I walk through your site like a real customer.</p></div><div class="card-f"><video muted loop playsinline preload="none" poster="film/w-rainbow.jpg" data-src="film/w-rainbow.mp4"></video></div></article>
-    <article class="card"><div class="card-n"><em>ii</em></div><div class="card-t"><h3>Find The Leak</h3><p>I find the first place people leave.</p></div><div class="card-f"><video muted loop playsinline preload="none" poster="film/w-purpleflare.jpg" data-src="film/w-purpleflare.mp4"></video></div></article>
-    <article class="card"><div class="card-n"><em>iii</em></div><div class="card-t"><h3>Build The Fix</h3><p>I build the page, form or follow-up that fixes it.</p></div><div class="card-f"><video muted loop playsinline preload="none" poster="film/w-wrapstar.jpg" data-src="film/w-wrapstar.mp4"></video></div></article>
+<section class="flow" data-theme="light" id="flow" aria-label="How It Works">
+  <div class="flow-st">
+    <div class="flow-top">
+      <h2 class="flow-h mask"><span class="ml"><span>Your Footage In.</span></span><span class="ml"><span><em>A Site You Can Feel.</em></span></span></h2>
+      <p class="flow-k"><span class="flow-ix" id="flowIx">i</span><span class="flow-of"><em>of</em> iv</span></p>
+    </div>
+    <div class="flow-f" id="flowF">
+      <video muted loop playsinline preload="none" poster="film/w-rainbow.jpg?v=1011s" data-fs="film/w-rainbow.mp4?v=1011s" class="on"></video>
+      <video muted loop playsinline preload="none" poster="film/w-rana.jpg?v=1011s" data-fs="film/w-rana.mp4?v=1011s"></video>
+      <video muted loop playsinline preload="none" poster="film/w-generations.jpg?v=1011s" data-fs="film/w-generations.mp4?v=1011s"></video>
+      <video muted loop playsinline preload="none" poster="film/w-prorok.jpg?v=1011s" data-fs="film/w-prorok.mp4?v=1011s"></video>
+    </div>
+    <ol class="flow-b" id="flowB">
+      <li class="on"><h3 class="flow-t"><span>See</span> <span>Your</span> <em>Work.</em></h3><p>I go through your Instagram, YouTube and website, and pull the best film you've already shot.</p></li>
+      <li><h3 class="flow-t"><span>Build</span> <span>Your</span> <em>Concept.</em></h3><p>Before we ever talk, I build a working concept of your new site from that film. It's free.</p></li>
+      <li><h3 class="flow-t"><span>Feel</span> <span>It</span> <em>First.</em></h3><p>You click through it on your own phone, the way your customers will. Love it, and we make it yours. If not, you owe nothing.</p></li>
+      <li><h3 class="flow-t"><span>Keep</span> <em>Winning.</em></h3><p>I launch it on your domain and set up your Google search so new customers find you.</p><p class="flow-pr"><em>Dylan Prorok, Japanese Tattoo Artist.</em> His first customer from Google came in two weeks after launch.</p><a class="btn" href="https://jarrettwroten.com/book/">Book Your Free Concept Call</a></li>
+    </ol>
+    <div class="flow-r" aria-hidden="true"><span>See Your Work</span><span>Build Your Concept</span><span>Feel It First</span><span>Keep Winning</span><i id="flowR"></i></div>
   </div>
 </section>
 
@@ -91,8 +102,8 @@
 <section class="me grid" data-theme="dark" aria-label="About Jarrett">
   <div class="me-p"><img src="jarrett.jpg" alt="Jarrett Wroten" width="900" height="1125" loading="lazy"></div>
   <div class="me-t">
-    <h2 class="h2 mask"><span class="ml"><span>I Build The Fix</span></span><span class="ml"><span><em>Myself.</em></span></span></h2>
-    <p class="fade">You work with me from the first look through the finished fix. Every concept on this page I built on spec, from the business's own footage.</p>
+    <h2 class="h2 mask"><span class="ml"><span>I Build Every Site</span></span><span class="ml"><span><em>Myself.</em></span></span></h2>
+    <p class="fade">You work with me from the first look through launch day. Every concept on this page I built on spec, from the business's own footage.</p>
     <p class="fade me-sig">Your first look is free.</p>
   </div>
 </section>
@@ -143,6 +154,7 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="app.js?v=48"></script>
+<script src="flow.js?v=1"></script>
 <script>if(/[?&]v=(draw|flare|drawlight)\b/.test(location.search)){var s=document.createElement("script");s.src="rv.js?v=1";document.body.appendChild(s)}</script>
 </body>
 </html>
