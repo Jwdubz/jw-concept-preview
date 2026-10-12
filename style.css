@@ -351,9 +351,9 @@ html.light .pp,html.light .bar .mbtn{border-color:rgba(18,17,16,.55);background:
   .pc{height:auto!important;align-self:flex-start!important}
   .pc-f{height:auto!important;width:86vw!important;max-width:86vw!important;aspect-ratio:16/9!important}
   .pc-f video{inset:0!important;width:100%!important;height:100%!important;transform:none!important}
-  .pc-f:has(video[src*="prorok-scroll-m"]){width:min(86vw,calc((100svh - 300px) * .8))!important;aspect-ratio:780/976!important}
+  .pc-f:has(video[src*="prorok-scroll-m"]){width:min(86vw,calc((100svh - 300px) * .8),296px)!important;aspect-ratio:780/976!important}
   .card-f{aspect-ratio:16/9!important;min-height:0!important;flex:none!important}
-  .card-f:has(video[data-src-m*="prorok-scroll-m"]){aspect-ratio:780/976!important}
+  .card-f:has(video[data-src-m*="prorok-scroll-m"]){aspect-ratio:780/976!important;width:min(100%,296px)!important}
   .end-v-w{clip-path:none!important}
   .end-v{aspect-ratio:16/9!important}
   .walk{flex-direction:column;align-items:stretch;min-height:0!important;padding-top:96px}
